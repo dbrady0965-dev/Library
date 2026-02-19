@@ -12,7 +12,7 @@ class Book {
     }
 }
 function showCustomForm() {
-    document.getElementById('customFormContainer').style.display = 'none';
+    document.getElementById('customFormContainer').style.display = 'block';
 };
 
 function hideCustomForm() {
@@ -25,10 +25,10 @@ function submitCustomForm() {
     const title = document.getElementById('title').value;
     const author = document.getElementById('author').value;
     const pages = document.getElementById('pages').value;
-    const read = document.getElementById('read').value;
+    const read = document.getElementById('read').checked;
 
-    // Display the data or process it further
-    alert("Form submitted!\nTitle: " + title + "\nAuthor: " + author);
+    addBookToLibrary(title, author, pages, read);
+    displayBooks();
 
     // Optional: Hide the form after submission
     hideCustomForm();
