@@ -1,34 +1,74 @@
+const myLibrary = [];
+
 class Book {
-    constructor(title, uuid) {
+    constructor(title, author, pages, read) {
+        this.id = crypto.randomUUID();
         this.title = title;
-        this.uuid = crypto.randomUUID();
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
 
         
     }
 }
 
-const myLibrary = [];
-const uuid = () => {
-  if (typeof window !== 'undefined' && typeof window.crypto.randomUUID === 'function') {
-    return window.crypto.randomUUID();
-  }
-  // Fallback for older Node.js versions (requires 'crypto' module)
-  if (typeof require !== 'undefined') {
-    const nodeCrypto = require('crypto');
-    return nodeCrypto.randomUUID();
-  }
-  // Further fallbacks or error handling for very old environments
-  // ...
-};
+function addBookToLibrary(title, author, pages, read) {
+    const book = new Book(title, author, pages, read);
+    myLibrary.push(book);
+}
+
+function displayBooks() {
+    const container = document.getElementById("booklist");
+    container.innerHTML = "";
+
+    myLibrary.forEach(book => {
+        const li = document.createElement("li");
+        li.textContent = `${book.title} by ${book.author}`;
+        li.dataset.id = book.id;
+        container.appendChild(li);
+    });
+}
+
+addBookToLibrary("James and the Giant Peach", "Roald Dahl", 160, false);
+addBookToLibrary("The Darkroom Cookbook", "Steve Anchell", 352, true);
+addBookToLibrary("The Heroin Diaries", "Nikki Sixx", 416, true);
+
+displayBooks();
 
 
-myLibrary.push(new Book("The Darkroom Cookbook", uuid));
-myLibrary.push(new Book("The Herion Diaries, Nikki Sixx", uuid));
-myLibrary.push(new Book("The Art Of War, Sun Tzu", uuid));
 
 
-console.log(myLibrary);
 
+/*
+function createTable(dataArray) {
+    let tableHTML = '<table><thead><tr>';
+
+    const headers = Object.keys(dataArray[0]);
+    headers.forEach(header => {
+        tableHTML += '<th>${header}</th>';
+    });
+    tableHTML += '</tr></thead><tbody>';
+
+    dataArray.forEach(item => {
+        tableHTML += '<tr>';
+        headers.forEach(header => {
+            tableHTML += '<td>${item[header]}</td>';
+        });
+        tableHTML += '</tr>';
+    });
+    const container = document.getElementById('table-container');
+    container.innerHTML = tableHTML;
+}
+
+createTable(myLibrary);
+*/
+
+/*
+const htmlListItems = myLibrary.map(book => '<li>${book}</li>');
+const finalHtml = '<ul>${htmlListItems.join("")}</ul>';
+
+container.innerHTML = finalHtml;
+*/
 
 /*
 const myLibrary = [];
