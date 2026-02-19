@@ -1,5 +1,6 @@
 const myLibrary = [];
 
+
 class Book {
     constructor(title, author, pages, read) {
         this.id = crypto.randomUUID();
@@ -29,6 +30,7 @@ function submitCustomForm() {
 
     addBookToLibrary(title, author, pages, read);
     displayBooks();
+    
 
     // Optional: Hide the form after submission
     hideCustomForm();
