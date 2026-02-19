@@ -24,6 +24,7 @@ const uuid = () => {
 
 myLibrary.push(new Book("The Darkroom Cookbook", uuid));
 myLibrary.push(new Book("The Herion Diaries", uuid));
+myLibrary.push(new Book("The Art Of War", uuid));
 
 
 console.log(myLibrary);
