@@ -35,6 +35,25 @@ addBookToLibrary("The Heroin Diaries", "Nikki Sixx", 416, true);
 
 displayBooks();
 
+function showCustomForm() {
+    document.getElementById('customFormContainer').style.display = 'none';
+};
+
+function hideCustomForm() {
+    // Hide the form container
+    document.getElementById('customFormContainer').style.display = 'none';
+}
+
+function submitCustomForm() {
+    // Get form data
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    // Display the data or process it further
+    alert("Form submitted!\nEmail: " + email + "\nMessage: " + message);
+
+    // Optional: Hide the form after submission
+    hideCustomForm();
 
 
 
