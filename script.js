@@ -11,7 +11,28 @@ class Book {
         
     }
 }
+function showCustomForm() {
+    document.getElementById('customFormContainer').style.display = 'none';
+};
 
+function hideCustomForm() {
+    // Hide the form container
+    document.getElementById('customFormContainer').style.display = 'none';
+}
+
+function submitCustomForm() {
+    // Get form data
+    const title = document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+    const pages = document.getElementById('pages').value;
+    const read = document.getElementById('read').value;
+
+    // Display the data or process it further
+    alert("Form submitted!\nTitle: " + title + "\nAuthor: " + author);
+
+    // Optional: Hide the form after submission
+    hideCustomForm();
+}
 function addBookToLibrary(title, author, pages, read) {
     const book = new Book(title, author, pages, read);
     myLibrary.push(book);
@@ -35,90 +56,4 @@ addBookToLibrary("The Heroin Diaries", "Nikki Sixx", 416, true);
 
 displayBooks();
 
-function showCustomForm() {
-    document.getElementById('customFormContainer').style.display = 'none';
-};
 
-function hideCustomForm() {
-    // Hide the form container
-    document.getElementById('customFormContainer').style.display = 'none';
-}
-
-function submitCustomForm() {
-    // Get form data
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-
-    // Display the data or process it further
-    alert("Form submitted!\nEmail: " + email + "\nMessage: " + message);
-
-    // Optional: Hide the form after submission
-    hideCustomForm();
-
-
-
-
-/*
-function createTable(dataArray) {
-    let tableHTML = '<table><thead><tr>';
-
-    const headers = Object.keys(dataArray[0]);
-    headers.forEach(header => {
-        tableHTML += '<th>${header}</th>';
-    });
-    tableHTML += '</tr></thead><tbody>';
-
-    dataArray.forEach(item => {
-        tableHTML += '<tr>';
-        headers.forEach(header => {
-            tableHTML += '<td>${item[header]}</td>';
-        });
-        tableHTML += '</tr>';
-    });
-    const container = document.getElementById('table-container');
-    container.innerHTML = tableHTML;
-}
-
-createTable(myLibrary);
-*/
-
-/*
-const htmlListItems = myLibrary.map(book => '<li>${book}</li>');
-const finalHtml = '<ul>${htmlListItems.join("")}</ul>';
-
-container.innerHTML = finalHtml;
-*/
-
-/*
-const myLibrary = [];
-    
-
-function Book(title, uuid) {
-    title = title;
-    uuid = crypto.randomUUID();
-    console.log('Generated UUID:  ${uuid}');
-    
-
-    return {
-        title: title,
-        id: uuid,
-    };
-}
-
-function addBookToLibrary(title, uuid) {
-    title.push(title);
-    return title;
-}
-
-addBookToLibrary(myLibrary, 'Epic Wanderer');
-console.log(myLibrary);
-*/
-  /*  
-const book = new Book ("Epic Wanderer", Crypto)
-    for (let i = 0; i< book.length; i++) {
-        console.log('Index: ${i}, Value: ${book[i]}');
-    }
-
-    new Array("Harry Potter", "The Herion Diaries", 
-    "The Darkroom Cookbook");
-*/
