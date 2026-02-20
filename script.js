@@ -34,7 +34,24 @@ function submitCustomForm() {
 
     // Optional: Hide the form after submission
     hideCustomForm();
+
 }
+
+function removeBook () {
+    const removeButton = document.createElement('li');
+    li.appendChild(document.createTextNode(itemName));
+
+    removeButton.addEventListener('click', function() {
+        this.parentElement.remove();
+    });
+
+    li.appendChild(removeButton);
+    myLibrary.appendChild(li);
+
+    document.getElementById('removeBookContainer').style.display = 'block';
+}
+
+
 function addBookToLibrary(title, author, pages, read) {
     const book = new Book(title, author, pages, read);
     myLibrary.push(book);
