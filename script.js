@@ -14,6 +14,8 @@ class Book {
         this.read = !this.read;
     }
 }
+console.log(myLibrary);
+
 function showCustomForm() {
     document.getElementById('customFormContainer').style.display = 'block';
 };
